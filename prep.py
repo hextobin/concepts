@@ -6,8 +6,9 @@ current and previous token (so the model can apply it while generating).
 
 Outputs, per split, in data/:
   {split}_tokens.bin  uint16 token ids, stories separated by <|endoftext|>
-  {split}_flags.bin   uint8 per token: 0 = inside clause,
-                      1 = clause ends here, 2 = sentence (or story) ends here
+  {split}_flags.bin   uint8 bit flags per token, set where a segment ends:
+                      CLAUSE (1), SENTENCE (2), PARAGRAPH (4). A story end
+                      sets all three.
 """
 
 import argparse
@@ -21,6 +22,7 @@ EOT = "<|endoftext|>"
 SENTENCE_END = set(".!?")
 CONJUNCTIONS = {"and", "but", "so", "then", "because"}
 QUOTES = "\"'”’"
+CLAUSE, SENTENCE, PARAGRAPH = 1, 2, 4
 
 
 def load_stories(path, truncated_tail):
@@ -53,8 +55,11 @@ def boundary_tables(tok):
     ends_sentence = np.zeros(n, bool)
     ends_comma = np.zeros(n, bool)
     is_conj = np.zeros(n, bool)
+    is_newline = np.zeros(n, bool)
     for i in range(n):
-        s = tok.decode([i], skip_special_tokens=False).rstrip()
+        raw = tok.decode([i], skip_special_tokens=False)
+        is_newline[i] = "\n" in raw
+        s = raw.rstrip()
         core = s.rstrip(QUOTES)
         if core[-1:] in SENTENCE_END:
             ends_sentence[i] = True
@@ -64,20 +69,28 @@ def boundary_tables(tok):
             ends_comma[i] = True
         if s.strip().lower() in CONJUNCTIONS:
             is_conj[i] = True
-    return ends_sentence, ends_comma, is_conj
+    return ends_sentence, ends_comma, is_conj, is_newline
 
 
 def mark_boundaries(ids, tables, eot_id):
     """Flags for one token stream. Each flag depends only on tokens <= t."""
-    ends_sentence, ends_comma, is_conj = tables
+    ends_sentence, ends_comma, is_conj, is_newline = tables
     ids = np.asarray(ids)
-    flags = np.zeros(len(ids), np.uint8)
-    flags[ends_sentence[ids]] = 2
-    flags[ids == eot_id] = 2
+    eot = ids == eot_id
+    sentence = ends_sentence[ids] | eot
     # ", and" / ", but" ...: the clause boundary fires on the conjunction token.
     prev_comma = np.zeros(len(ids), bool)
     prev_comma[1:] = ends_comma[ids[:-1]]
-    flags[(flags == 0) & prev_comma & is_conj[ids]] = 1
+    clause = sentence | (prev_comma & is_conj[ids])
+    paragraph = is_newline[ids] | eot
+    # A newline right after a clause end starts the next clause; otherwise it ends one.
+    prev_clause = np.zeros(len(ids), bool)
+    prev_clause[1:] = clause[:-1]
+    clause |= paragraph & ~prev_clause
+    flags = np.zeros(len(ids), np.uint8)
+    flags[clause] |= CLAUSE
+    flags[sentence] |= SENTENCE
+    flags[paragraph] |= PARAGRAPH
     return flags
 
 
@@ -91,21 +104,17 @@ def encode_split(tok, stories, tables):
     return ids, mark_boundaries(ids, tables, eot_id)
 
 
-def clause_stats(flags):
-    ends = np.flatnonzero(flags > 0)
-    lengths = np.diff(np.concatenate([[-1], ends]))
-    sent_ends = np.flatnonzero(flags == 2)
-    sent_lengths = np.diff(np.concatenate([[-1], sent_ends]))
-    pct = lambda a: {p: int(np.percentile(a, p)) for p in (10, 50, 90, 99)}
-    return {
-        "tokens": int(len(flags)),
-        "clauses": int(len(ends)),
-        "conjunction_boundaries": int((flags == 1).sum()),
-        "clause_len_mean": round(float(lengths.mean()), 2),
-        "clause_len_pct": pct(lengths),
-        "sentence_len_mean": round(float(sent_lengths.mean()), 2),
-        "sentence_len_pct": pct(sent_lengths),
-    }
+def segment_stats(flags):
+    stats = {"tokens": int(len(flags))}
+    for name, bit in (("clause", CLAUSE), ("sentence", SENTENCE), ("paragraph", PARAGRAPH)):
+        ends = np.flatnonzero(flags & bit)
+        lengths = np.diff(np.concatenate([[-1], ends]))
+        stats[name] = {
+            "count": int(len(ends)),
+            "len_mean": round(float(lengths.mean()), 2),
+            "len_pct": {p: int(np.percentile(lengths, p)) for p in (10, 50, 90, 99)},
+        }
+    return stats
 
 
 def show(tok, ids, flags, n_stories):
@@ -119,10 +128,12 @@ def show(tok, ids, flags, n_stories):
                 break
             continue
         out.append(tok.decode([int(i)]))
-        if f == 1:
-            out.append(" |")
-        elif f == 2:
+        if f & PARAGRAPH:
+            out.append("¶ ")
+        elif f & SENTENCE:
             out.append(" ||")
+        elif f & CLAUSE:
+            out.append(" |")
     print("".join(out))
 
 
@@ -167,7 +178,7 @@ def main():
         ids, flags = encode_split(tok, stories, tables)
         ids.tofile(os.path.join(d, f"{split}_tokens.bin"))
         flags.tofile(os.path.join(d, f"{split}_flags.bin"))
-        meta[split] = {"stories": len(stories), **clause_stats(flags)}
+        meta[split] = {"stories": len(stories), **segment_stats(flags)}
         print(split, json.dumps(meta[split]))
     json.dump(meta, open(os.path.join(d, "meta.json"), "w"), indent=2)
 
