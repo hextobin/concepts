@@ -90,7 +90,7 @@ class Roadmap(nn.Module):
         else:
             self.null = nn.Parameter(torch.zeros(c.d_code))  # code for a window's first segment
 
-    def forward(self, h, bnd, code_source):
+    def forward(self, h, bnd, code_source, codes=None):
         ids, n = segment_ids(bnd)
         # Segment g's tokens are predicted at positions with id g, so they sit one step later.
         pooled, count = mean_pool(h[:, 1:], ids[:, :-1], n)
@@ -108,8 +108,13 @@ class Roadmap(nn.Module):
             log_p = self.prior(h[bnd]).float().log_softmax(-1)  # boundary h only sees the past
             kl = (log_q.exp() * (log_q - log_p)).sum(-1)
             aux["code_nll"] = kl[valid].sum()
+            aux["log_p"], aux["segment_ids"] = log_p, ids
             if code_source == "prior":
-                pick = F.one_hot(log_p.argmax(-1), self.c.n_codes).float()
+                # The predictor's best guess, unless a code is forced (-1 = not forced).
+                choice = log_p.argmax(-1)
+                if codes is not None:
+                    choice = torch.where(codes >= 0, codes, choice)
+                pick = F.one_hot(choice, self.c.n_codes).float()
         z = pick.to(h.dtype) @ self.codebook.to(h.dtype)
         if self.c.mode == "summary":
             first_segment = bnd.long().cumsum(1) == 1
@@ -139,13 +144,14 @@ class GPT(nn.Module):
         if isinstance(m, (nn.Linear, nn.Embedding)):
             nn.init.normal_(m.weight, std=0.02)
 
-    def forward(self, idx, targets=None, bnd=None, code_source="encoder", kl_weight=1.0, free_bits=0.0):
+    def forward(self, idx, targets=None, bnd=None, code_source="encoder", kl_weight=1.0, free_bits=0.0,
+                codes=None):
         T = idx.shape[1]
         x = self.tok_emb(idx) + self.pos_emb(torch.arange(T, device=idx.device))
         aux = {}
         for i, block in enumerate(self.blocks):
             if i == self.c.inject_layer and self.roadmap is not None:
-                x, aux = self.roadmap(x, bnd, code_source)
+                x, aux = self.roadmap(x, bnd, code_source, codes)
             x = block(x)
         logits = self.head(self.ln_f(x))
         if targets is None:
