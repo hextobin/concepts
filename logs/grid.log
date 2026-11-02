@@ -254,3 +254,9 @@ plan-clause-1024-s1: 30.8M params on cuda
 plan-clause-1024-s1 {"items": 1000, "acc_4way": 0.654, "acc_4way_raw": 0.713, "beats_later": 0.735, "beats_earlier": 0.83, "beats_other": 0.99, "plans": 8}
 [04:48:51] done plan-clause-1024-s1
 [04:48:51] grid finished
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File checkpoints/plan-clause-1024-s1.pt.gz is 52.74 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File checkpoints/plan-clause-64-s1.pt.gz is 51.16 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File checkpoints/plan-random-256-s1.pt.gz is 51.48 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[04:49:36] deadline moved to one hour from now
