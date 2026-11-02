@@ -1,0 +1,71 @@
+[03:55:31] installing python packages
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+name, memory.total [MiB]
+NVIDIA H100 80GB HBM3, 81559 MiB
+[03:56:51] downloading TinyStories
+
+
+
+stories: train 2,717,495  valid 27,629
+train {"stories": 2717495, "tokens": 536217831, "clause": {"count": 56561486, "len_mean": 9.48, "len_pct": {"10": 4, "50": 9, "90": 15, "99": 22}}, "sentence": {"count": 52045870, "len_mean": 10.3, "len_pct": {"10": 5, "50": 10, "90": 16, "99": 23}}, "paragraph": {"count": 11837416, "len_mean": 45.3, "len_pct": {"10": 22, "50": 45, "90": 66, "99": 94}}}
+valid {"stories": 27629, "tokens": 5414925, "clause": {"count": 570721, "len_mean": 9.49, "len_pct": {"10": 4, "50": 9, "90": 15, "99": 22}}, "sentence": {"count": 524737, "len_mean": 10.32, "len_pct": {"10": 5, "50": 10, "90": 16, "99": 23}}, "paragraph": {"count": 119698, "len_mean": 45.24, "len_pct": {"10": 22, "50": 45, "90": 66, "99": 93}}}
+[03:59:16] start base-s0
+base-s0: 29.6M params on cuda
+{"step": 0, "tokens_seen": 0, "minutes": 0.0, "token_loss": 9.029, "code_loss": 0.0, "fair_loss": 9.029}
+{"step": 500, "tokens_seen": 16384000, "minutes": 0.27, "token_loss": 2.113, "code_loss": 0.0, "fair_loss": 2.113}
+{"step": 1000, "tokens_seen": 32768000, "minutes": 0.51, "token_loss": 1.7337, "code_loss": 0.0, "fair_loss": 1.7337}
+{"step": 1500, "tokens_seen": 49152000, "minutes": 0.75, "token_loss": 1.5906, "code_loss": 0.0, "fair_loss": 1.5906}
+{"step": 2000, "tokens_seen": 65536000, "minutes": 0.99, "token_loss": 1.5009, "code_loss": 0.0, "fair_loss": 1.5009}
+{"step": 2500, "tokens_seen": 81920000, "minutes": 1.23, "token_loss": 1.4364, "code_loss": 0.0, "fair_loss": 1.4364}
+{"step": 3000, "tokens_seen": 98304000, "minutes": 1.48, "token_loss": 1.3815, "code_loss": 0.0, "fair_loss": 1.3815}
+{"step": 3500, "tokens_seen": 114688000, "minutes": 1.72, "token_loss": 1.3384, "code_loss": 0.0, "fair_loss": 1.3384}
+{"step": 4000, "tokens_seen": 131072000, "minutes": 1.96, "token_loss": 1.3014, "code_loss": 0.0, "fair_loss": 1.3014}
+{"step": 4500, "tokens_seen": 147456000, "minutes": 2.2, "token_loss": 1.2722, "code_loss": 0.0, "fair_loss": 1.2722}
+{"step": 5000, "tokens_seen": 163840000, "minutes": 2.44, "token_loss": 1.2477, "code_loss": 0.0, "fair_loss": 1.2477}
+{"step": 5500, "tokens_seen": 180224000, "minutes": 2.68, "token_loss": 1.2317, "code_loss": 0.0, "fair_loss": 1.2317}
+{"step": 6000, "tokens_seen": 196608000, "minutes": 2.92, "token_loss": 1.2221, "code_loss": 0.0, "fair_loss": 1.2221}
+base-s0 {"items": 1000, "acc_4way": 0.638, "acc_4way_raw": 0.715, "beats_later": 0.724, "beats_earlier": 0.824, "beats_other": 0.992, "plans": 8}
+[04:02:23] done base-s0
+[04:02:23] start plan-clause-256-s0
+plan-clause-256-s0: 30.0M params on cuda
+{"step": 0, "tokens_seen": 0, "minutes": 0.0, "token_loss": 9.1071, "code_loss": 0.0198, "fair_loss": 9.1269, "code_bits_per_segment": 0.275, "codes_used": 256, "code_perplexity": 240.2}
+{"step": 500, "tokens_seen": 16384000, "minutes": 0.29, "token_loss": 2.0284, "code_loss": 0.1447, "fair_loss": 2.1731, "code_bits_per_segment": 2.007, "codes_used": 174, "code_perplexity": 40.6}
+{"step": 1000, "tokens_seen": 32768000, "minutes": 0.56, "token_loss": 1.6351, "code_loss": 0.141, "fair_loss": 1.7761, "code_bits_per_segment": 1.956, "codes_used": 127, "code_perplexity": 41.8}
+{"step": 1500, "tokens_seen": 49152000, "minutes": 0.82, "token_loss": 1.4868, "code_loss": 0.1479, "fair_loss": 1.6347, "code_bits_per_segment": 2.051, "codes_used": 115, "code_perplexity": 44.7}
+{"step": 2000, "tokens_seen": 65536000, "minutes": 1.08, "token_loss": 1.39, "code_loss": 0.1462, "fair_loss": 1.5362, "code_bits_per_segment": 2.028, "codes_used": 110, "code_perplexity": 45.5}
+{"step": 2500, "tokens_seen": 81920000, "minutes": 1.35, "token_loss": 1.3271, "code_loss": 0.144, "fair_loss": 1.4712, "code_bits_per_segment": 1.997, "codes_used": 107, "code_perplexity": 45.9}
+{"step": 3000, "tokens_seen": 98304000, "minutes": 1.61, "token_loss": 1.2731, "code_loss": 0.1454, "fair_loss": 1.4185, "code_bits_per_segment": 2.017, "codes_used": 119, "code_perplexity": 46.3}
+{"step": 3500, "tokens_seen": 114688000, "minutes": 1.87, "token_loss": 1.2287, "code_loss": 0.1447, "fair_loss": 1.3733, "code_bits_per_segment": 2.007, "codes_used": 119, "code_perplexity": 48.3}
+{"step": 4000, "tokens_seen": 131072000, "minutes": 2.13, "token_loss": 1.1909, "code_loss": 0.1462, "fair_loss": 1.3371, "code_bits_per_segment": 2.028, "codes_used": 121, "code_perplexity": 48.7}
+{"step": 4500, "tokens_seen": 147456000, "minutes": 2.4, "token_loss": 1.1595, "code_loss": 0.1455, "fair_loss": 1.305, "code_bits_per_segment": 2.018, "codes_used": 114, "code_perplexity": 48.8}
+{"step": 5000, "tokens_seen": 163840000, "minutes": 2.66, "token_loss": 1.1354, "code_loss": 0.1454, "fair_loss": 1.2809, "code_bits_per_segment": 2.017, "codes_used": 114, "code_perplexity": 47.6}
+{"step": 5500, "tokens_seen": 180224000, "minutes": 2.92, "token_loss": 1.1184, "code_loss": 0.1455, "fair_loss": 1.2639, "code_bits_per_segment": 2.018, "codes_used": 113, "code_perplexity": 49.2}
+{"step": 6000, "tokens_seen": 196608000, "minutes": 3.18, "token_loss": 1.1089, "code_loss": 0.1437, "fair_loss": 1.2526, "code_bits_per_segment": 1.993, "codes_used": 116, "code_perplexity": 49.3}
+plan-clause-256-s0 {"items": 1000, "acc_4way": 0.656, "acc_4way_raw": 0.713, "beats_later": 0.731, "beats_earlier": 0.835, "beats_other": 0.991, "plans": 8}
+[04:06:03] done plan-clause-256-s0
+[04:06:03] start summary-clause-256-s0
+summary-clause-256-s0: 29.8M params on cuda
+{"step": 0, "tokens_seen": 0, "minutes": 0.0, "token_loss": 9.1088, "code_loss": 0.0, "fair_loss": 9.1088, "code_bits_per_segment": 0.0, "codes_used": 137, "code_perplexity": 22.1}
+{"step": 500, "tokens_seen": 16384000, "minutes": 0.29, "token_loss": 2.1139, "code_loss": 0.0, "fair_loss": 2.1139, "code_bits_per_segment": 0.0, "codes_used": 103, "code_perplexity": 44.3}
+{"step": 1000, "tokens_seen": 32768000, "minutes": 0.55, "token_loss": 1.737, "code_loss": 0.0, "fair_loss": 1.737, "code_bits_per_segment": 0.0, "codes_used": 149, "code_perplexity": 70.1}
+{"step": 1500, "tokens_seen": 49152000, "minutes": 0.81, "token_loss": 1.5943, "code_loss": 0.0, "fair_loss": 1.5943, "code_bits_per_segment": 0.0, "codes_used": 162, "code_perplexity": 75.0}
+{"step": 2000, "tokens_seen": 65536000, "minutes": 1.07, "token_loss": 1.5031, "code_loss": 0.0, "fair_loss": 1.5031, "code_bits_per_segment": 0.0, "codes_used": 161, "code_perplexity": 88.8}
+{"step": 2500, "tokens_seen": 81920000, "minutes": 1.33, "token_loss": 1.4431, "code_loss": 0.0, "fair_loss": 1.4431, "code_bits_per_segment": 0.0, "codes_used": 178, "code_perplexity": 91.8}
+{"step": 3000, "tokens_seen": 98304000, "minutes": 1.59, "token_loss": 1.3899, "code_loss": 0.0, "fair_loss": 1.3899, "code_bits_per_segment": 0.0, "codes_used": 175, "code_perplexity": 93.5}
+{"step": 3500, "tokens_seen": 114688000, "minutes": 1.85, "token_loss": 1.3444, "code_loss": 0.0, "fair_loss": 1.3444, "code_bits_per_segment": 0.0, "codes_used": 189, "code_perplexity": 106.7}
+{"step": 4000, "tokens_seen": 131072000, "minutes": 2.11, "token_loss": 1.3079, "code_loss": 0.0, "fair_loss": 1.3079, "code_bits_per_segment": 0.0, "codes_used": 189, "code_perplexity": 102.3}
+{"step": 4500, "tokens_seen": 147456000, "minutes": 2.37, "token_loss": 1.2769, "code_loss": 0.0, "fair_loss": 1.2769, "code_bits_per_segment": 0.0, "codes_used": 192, "code_perplexity": 107.9}
+{"step": 5000, "tokens_seen": 163840000, "minutes": 2.63, "token_loss": 1.2524, "code_loss": 0.0, "fair_loss": 1.2524, "code_bits_per_segment": 0.0, "codes_used": 194, "code_perplexity": 114.5}
+{"step": 5500, "tokens_seen": 180224000, "minutes": 2.89, "token_loss": 1.2359, "code_loss": 0.0, "fair_loss": 1.2359, "code_bits_per_segment": 0.0, "codes_used": 198, "code_perplexity": 114.0}
+{"step": 6000, "tokens_seen": 196608000, "minutes": 3.15, "token_loss": 1.2257, "code_loss": 0.0, "fair_loss": 1.2257, "code_bits_per_segment": 0.0, "codes_used": 199, "code_perplexity": 115.4}
+summary-clause-256-s0 {"items": 1000, "acc_4way": 0.644, "acc_4way_raw": 0.708, "beats_later": 0.728, "beats_earlier": 0.827, "beats_other": 0.992, "plans": 8}
+[04:09:24] done summary-clause-256-s0
+[04:09:24] start plan-paragraph-256-s0
+plan-paragraph-256-s0: 30.0M params on cuda
+{"step": 0, "tokens_seen": 0, "minutes": 0.0, "token_loss": 9.1071, "code_loss": 0.0043, "fair_loss": 9.1114, "code_bits_per_segment": 0.273, "codes_used": 256, "code_perplexity": 237.2}

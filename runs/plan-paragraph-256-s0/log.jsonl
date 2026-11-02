@@ -1,0 +1,1 @@
+{"step": 0, "tokens_seen": 0, "minutes": 0.0, "token_loss": 9.1071, "code_loss": 0.0043, "fair_loss": 9.1114, "code_bits_per_segment": 0.273, "codes_used": 256, "code_perplexity": 237.2}
