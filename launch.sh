@@ -3,9 +3,12 @@
 # destroys itself. Tokens are typed at the prompt, only go into the droplet's
 # startup script, and the temporary copy here is deleted on exit.
 #
-#   ./launch.sh [deadline_hours]   (default 10)
+#   ./launch.sh [size] [region] [deadline_hours]
+#   (defaults: gpu-6000adax1-48gb tor1 10)
 set -euo pipefail
-HOURS=${1:-10}
+SIZE=${1:-gpu-6000adax1-48gb}
+REGION=${2:-tor1}
+HOURS=${3:-10}
 cd "$(dirname "$0")"
 
 git fetch -q origin main
@@ -34,6 +37,6 @@ bash /root/concepts/box/setup.sh
 EOF
 
 doctl compute droplet create concepts-run \
-  --size gpu-6000adax1-48gb --region tor1 --image gpu-h100x1-base \
+  --size "$SIZE" --region "$REGION" --image gpu-h100x1-base \
   --ssh-keys 60418976 --user-data-file "$UD" --wait \
   --format ID,Name,PublicIPv4,Status
