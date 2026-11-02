@@ -5,3 +5,9 @@
 {"step": 2000, "tokens_seen": 65536000, "minutes": 1.09, "token_loss": 1.4421, "code_loss": 0.1452, "fair_loss": 1.5873, "code_bits_per_segment": 1.966, "codes_used": 87, "code_perplexity": 74.6}
 {"step": 2500, "tokens_seen": 81920000, "minutes": 1.35, "token_loss": 1.3732, "code_loss": 0.15, "fair_loss": 1.5232, "code_bits_per_segment": 2.032, "codes_used": 86, "code_perplexity": 76.3}
 {"step": 3000, "tokens_seen": 98304000, "minutes": 1.62, "token_loss": 1.3209, "code_loss": 0.1464, "fair_loss": 1.4672, "code_bits_per_segment": 1.982, "codes_used": 86, "code_perplexity": 77.8}
+{"step": 3500, "tokens_seen": 114688000, "minutes": 1.88, "token_loss": 1.2736, "code_loss": 0.1454, "fair_loss": 1.419, "code_bits_per_segment": 1.969, "codes_used": 85, "code_perplexity": 80.1}
+{"step": 4000, "tokens_seen": 131072000, "minutes": 2.14, "token_loss": 1.2353, "code_loss": 0.1471, "fair_loss": 1.3825, "code_bits_per_segment": 1.993, "codes_used": 85, "code_perplexity": 79.9}
+{"step": 4500, "tokens_seen": 147456000, "minutes": 2.41, "token_loss": 1.2039, "code_loss": 0.1452, "fair_loss": 1.3492, "code_bits_per_segment": 1.967, "codes_used": 86, "code_perplexity": 81.5}
+{"step": 5000, "tokens_seen": 163840000, "minutes": 2.67, "token_loss": 1.1785, "code_loss": 0.147, "fair_loss": 1.3255, "code_bits_per_segment": 1.991, "codes_used": 87, "code_perplexity": 81.8}
+{"step": 5500, "tokens_seen": 180224000, "minutes": 2.94, "token_loss": 1.1591, "code_loss": 0.1488, "fair_loss": 1.3079, "code_bits_per_segment": 2.015, "codes_used": 85, "code_perplexity": 82.0}
+{"step": 6000, "tokens_seen": 196608000, "minutes": 3.2, "token_loss": 1.1504, "code_loss": 0.1464, "fair_loss": 1.2968, "code_bits_per_segment": 1.983, "codes_used": 85, "code_perplexity": 82.4}

@@ -1,0 +1,31 @@
+{
+  "name": "plan-clause-64-s1",
+  "mode": "plan",
+  "level": "clause",
+  "codes": 64,
+  "preset": "small",
+  "steps": 6000,
+  "batch": 64,
+  "lr": 0.001,
+  "warmup": 200,
+  "eval_every": 500,
+  "eval_batches": 20,
+  "kl_weight": 1.0,
+  "free_bits": 2.0,
+  "seed": 1,
+  "data_dir": "data",
+  "out_dir": "runs",
+  "compile": false,
+  "random_rate": 0.10548229232608268,
+  "params": 29744256,
+  "config": {
+    "vocab_size": 8192,
+    "block_size": 512,
+    "n_layer": 8,
+    "n_head": 8,
+    "d_model": 512,
+    "mode": "plan",
+    "n_codes": 64,
+    "d_code": 64
+  }
+}
