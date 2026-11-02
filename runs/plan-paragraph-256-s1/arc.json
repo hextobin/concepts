@@ -1,0 +1,9 @@
+{
+  "items": 1000,
+  "acc_4way": 0.635,
+  "acc_4way_raw": 0.707,
+  "beats_later": 0.72,
+  "beats_earlier": 0.828,
+  "beats_other": 0.988,
+  "plans": 8
+}

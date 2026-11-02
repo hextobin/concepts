@@ -1,2 +1,13 @@
 {"step": 0, "tokens_seen": 0, "minutes": 0.0, "token_loss": 9.1329, "code_loss": 0.0, "fair_loss": 9.1329}
 {"step": 500, "tokens_seen": 16384000, "minutes": 0.27, "token_loss": 2.1167, "code_loss": 0.0, "fair_loss": 2.1167}
+{"step": 1000, "tokens_seen": 32768000, "minutes": 0.51, "token_loss": 1.7395, "code_loss": 0.0, "fair_loss": 1.7395}
+{"step": 1500, "tokens_seen": 49152000, "minutes": 0.75, "token_loss": 1.5921, "code_loss": 0.0, "fair_loss": 1.5921}
+{"step": 2000, "tokens_seen": 65536000, "minutes": 0.99, "token_loss": 1.4998, "code_loss": 0.0, "fair_loss": 1.4998}
+{"step": 2500, "tokens_seen": 81920000, "minutes": 1.23, "token_loss": 1.4366, "code_loss": 0.0, "fair_loss": 1.4366}
+{"step": 3000, "tokens_seen": 98304000, "minutes": 1.47, "token_loss": 1.3833, "code_loss": 0.0, "fair_loss": 1.3833}
+{"step": 3500, "tokens_seen": 114688000, "minutes": 1.71, "token_loss": 1.338, "code_loss": 0.0, "fair_loss": 1.338}
+{"step": 4000, "tokens_seen": 131072000, "minutes": 1.95, "token_loss": 1.3007, "code_loss": 0.0, "fair_loss": 1.3007}
+{"step": 4500, "tokens_seen": 147456000, "minutes": 2.19, "token_loss": 1.2744, "code_loss": 0.0, "fair_loss": 1.2744}
+{"step": 5000, "tokens_seen": 163840000, "minutes": 2.43, "token_loss": 1.2482, "code_loss": 0.0, "fair_loss": 1.2482}
+{"step": 5500, "tokens_seen": 180224000, "minutes": 2.67, "token_loss": 1.2308, "code_loss": 0.0, "fair_loss": 1.2308}
+{"step": 6000, "tokens_seen": 196608000, "minutes": 2.91, "token_loss": 1.2216, "code_loss": 0.0, "fair_loss": 1.2216}

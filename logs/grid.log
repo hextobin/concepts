@@ -138,3 +138,76 @@ plan-clause-1024-s0 {"items": 1000, "acc_4way": 0.643, "acc_4way_raw": 0.705, "b
 base-s1: 29.6M params on cuda
 {"step": 0, "tokens_seen": 0, "minutes": 0.0, "token_loss": 9.1329, "code_loss": 0.0, "fair_loss": 9.1329}
 {"step": 500, "tokens_seen": 16384000, "minutes": 0.27, "token_loss": 2.1167, "code_loss": 0.0, "fair_loss": 2.1167}
+{"step": 1000, "tokens_seen": 32768000, "minutes": 0.51, "token_loss": 1.7395, "code_loss": 0.0, "fair_loss": 1.7395}
+{"step": 1500, "tokens_seen": 49152000, "minutes": 0.75, "token_loss": 1.5921, "code_loss": 0.0, "fair_loss": 1.5921}
+{"step": 2000, "tokens_seen": 65536000, "minutes": 0.99, "token_loss": 1.4998, "code_loss": 0.0, "fair_loss": 1.4998}
+{"step": 2500, "tokens_seen": 81920000, "minutes": 1.23, "token_loss": 1.4366, "code_loss": 0.0, "fair_loss": 1.4366}
+{"step": 3000, "tokens_seen": 98304000, "minutes": 1.47, "token_loss": 1.3833, "code_loss": 0.0, "fair_loss": 1.3833}
+{"step": 3500, "tokens_seen": 114688000, "minutes": 1.71, "token_loss": 1.338, "code_loss": 0.0, "fair_loss": 1.338}
+{"step": 4000, "tokens_seen": 131072000, "minutes": 1.95, "token_loss": 1.3007, "code_loss": 0.0, "fair_loss": 1.3007}
+{"step": 4500, "tokens_seen": 147456000, "minutes": 2.19, "token_loss": 1.2744, "code_loss": 0.0, "fair_loss": 1.2744}
+{"step": 5000, "tokens_seen": 163840000, "minutes": 2.43, "token_loss": 1.2482, "code_loss": 0.0, "fair_loss": 1.2482}
+{"step": 5500, "tokens_seen": 180224000, "minutes": 2.67, "token_loss": 1.2308, "code_loss": 0.0, "fair_loss": 1.2308}
+{"step": 6000, "tokens_seen": 196608000, "minutes": 2.91, "token_loss": 1.2216, "code_loss": 0.0, "fair_loss": 1.2216}
+base-s1 {"items": 1000, "acc_4way": 0.632, "acc_4way_raw": 0.72, "beats_later": 0.726, "beats_earlier": 0.819, "beats_other": 0.99, "plans": 8}
+[04:27:10] done base-s1
+[04:27:10] start plan-clause-256-s1
+plan-clause-256-s1: 30.0M params on cuda
+{"step": 0, "tokens_seen": 0, "minutes": 0.0, "token_loss": 9.1706, "code_loss": 0.0226, "fair_loss": 9.1932, "code_bits_per_segment": 0.313, "codes_used": 256, "code_perplexity": 237.4}
+{"step": 500, "tokens_seen": 16384000, "minutes": 0.29, "token_loss": 2.0292, "code_loss": 0.1447, "fair_loss": 2.1739, "code_bits_per_segment": 2.007, "codes_used": 185, "code_perplexity": 43.9}
+{"step": 1000, "tokens_seen": 32768000, "minutes": 0.56, "token_loss": 1.638, "code_loss": 0.1425, "fair_loss": 1.7805, "code_bits_per_segment": 1.977, "codes_used": 126, "code_perplexity": 47.4}
+{"step": 1500, "tokens_seen": 49152000, "minutes": 0.82, "token_loss": 1.4866, "code_loss": 0.1433, "fair_loss": 1.63, "code_bits_per_segment": 1.988, "codes_used": 118, "code_perplexity": 51.1}
+{"step": 2000, "tokens_seen": 65536000, "minutes": 1.08, "token_loss": 1.3983, "code_loss": 0.147, "fair_loss": 1.5453, "code_bits_per_segment": 2.039, "codes_used": 108, "code_perplexity": 54.6}
+{"step": 2500, "tokens_seen": 81920000, "minutes": 1.34, "token_loss": 1.3356, "code_loss": 0.1435, "fair_loss": 1.4792, "code_bits_per_segment": 1.991, "codes_used": 113, "code_perplexity": 56.9}
+{"step": 3000, "tokens_seen": 98304000, "minutes": 1.61, "token_loss": 1.2795, "code_loss": 0.1469, "fair_loss": 1.4264, "code_bits_per_segment": 2.037, "codes_used": 110, "code_perplexity": 58.8}
+{"step": 3500, "tokens_seen": 114688000, "minutes": 1.87, "token_loss": 1.2371, "code_loss": 0.1403, "fair_loss": 1.3774, "code_bits_per_segment": 1.946, "codes_used": 116, "code_perplexity": 58.4}
+{"step": 4000, "tokens_seen": 131072000, "minutes": 2.13, "token_loss": 1.1964, "code_loss": 0.1437, "fair_loss": 1.3401, "code_bits_per_segment": 1.993, "codes_used": 115, "code_perplexity": 58.5}
+{"step": 4500, "tokens_seen": 147456000, "minutes": 2.4, "token_loss": 1.1669, "code_loss": 0.1432, "fair_loss": 1.3101, "code_bits_per_segment": 1.987, "codes_used": 114, "code_perplexity": 59.8}
+{"step": 5000, "tokens_seen": 163840000, "minutes": 2.66, "token_loss": 1.1398, "code_loss": 0.1446, "fair_loss": 1.2843, "code_bits_per_segment": 2.005, "codes_used": 113, "code_perplexity": 59.7}
+{"step": 5500, "tokens_seen": 180224000, "minutes": 2.92, "token_loss": 1.1207, "code_loss": 0.1466, "fair_loss": 1.2673, "code_bits_per_segment": 2.034, "codes_used": 117, "code_perplexity": 61.3}
+{"step": 6000, "tokens_seen": 196608000, "minutes": 3.18, "token_loss": 1.1138, "code_loss": 0.144, "fair_loss": 1.2577, "code_bits_per_segment": 1.997, "codes_used": 114, "code_perplexity": 60.9}
+plan-clause-256-s1 {"items": 1000, "acc_4way": 0.634, "acc_4way_raw": 0.718, "beats_later": 0.712, "beats_earlier": 0.831, "beats_other": 0.993, "plans": 8}
+[04:30:49] done plan-clause-256-s1
+[04:30:49] start summary-clause-256-s1
+summary-clause-256-s1: 29.8M params on cuda
+{"step": 0, "tokens_seen": 0, "minutes": 0.0, "token_loss": 9.0855, "code_loss": 0.0, "fair_loss": 9.0855, "code_bits_per_segment": 0.0, "codes_used": 98, "code_perplexity": 2.4}
+{"step": 500, "tokens_seen": 16384000, "minutes": 0.29, "token_loss": 2.0989, "code_loss": 0.0, "fair_loss": 2.0989, "code_bits_per_segment": 0.0, "codes_used": 91, "code_perplexity": 35.2}
+{"step": 1000, "tokens_seen": 32768000, "minutes": 0.55, "token_loss": 1.7211, "code_loss": 0.0, "fair_loss": 1.7211, "code_bits_per_segment": 0.0, "codes_used": 134, "code_perplexity": 60.5}
+{"step": 1500, "tokens_seen": 49152000, "minutes": 0.81, "token_loss": 1.5779, "code_loss": 0.0, "fair_loss": 1.5779, "code_bits_per_segment": 0.0, "codes_used": 146, "code_perplexity": 73.6}
+{"step": 2000, "tokens_seen": 65536000, "minutes": 1.07, "token_loss": 1.4912, "code_loss": 0.0, "fair_loss": 1.4912, "code_bits_per_segment": 0.0, "codes_used": 151, "code_perplexity": 80.5}
+{"step": 2500, "tokens_seen": 81920000, "minutes": 1.33, "token_loss": 1.4283, "code_loss": 0.0, "fair_loss": 1.4283, "code_bits_per_segment": 0.0, "codes_used": 150, "code_perplexity": 84.7}
+{"step": 3000, "tokens_seen": 98304000, "minutes": 1.59, "token_loss": 1.3764, "code_loss": 0.0, "fair_loss": 1.3764, "code_bits_per_segment": 0.0, "codes_used": 154, "code_perplexity": 85.4}
+{"step": 3500, "tokens_seen": 114688000, "minutes": 1.85, "token_loss": 1.3318, "code_loss": 0.0, "fair_loss": 1.3318, "code_bits_per_segment": 0.0, "codes_used": 161, "code_perplexity": 92.7}
+{"step": 4000, "tokens_seen": 131072000, "minutes": 2.11, "token_loss": 1.2942, "code_loss": 0.0, "fair_loss": 1.2942, "code_bits_per_segment": 0.0, "codes_used": 160, "code_perplexity": 93.6}
+{"step": 4500, "tokens_seen": 147456000, "minutes": 2.37, "token_loss": 1.2674, "code_loss": 0.0, "fair_loss": 1.2674, "code_bits_per_segment": 0.0, "codes_used": 165, "code_perplexity": 97.9}
+{"step": 5000, "tokens_seen": 163840000, "minutes": 2.63, "token_loss": 1.2428, "code_loss": 0.0, "fair_loss": 1.2428, "code_bits_per_segment": 0.0, "codes_used": 166, "code_perplexity": 97.5}
+{"step": 5500, "tokens_seen": 180224000, "minutes": 2.89, "token_loss": 1.2262, "code_loss": 0.0, "fair_loss": 1.2262, "code_bits_per_segment": 0.0, "codes_used": 166, "code_perplexity": 101.5}
+{"step": 6000, "tokens_seen": 196608000, "minutes": 3.15, "token_loss": 1.2169, "code_loss": 0.0, "fair_loss": 1.2169, "code_bits_per_segment": 0.0, "codes_used": 166, "code_perplexity": 100.8}
+summary-clause-256-s1 {"items": 1000, "acc_4way": 0.631, "acc_4way_raw": 0.712, "beats_later": 0.727, "beats_earlier": 0.824, "beats_other": 0.995, "plans": 8}
+[04:34:10] done summary-clause-256-s1
+[04:34:10] start plan-paragraph-256-s1
+plan-paragraph-256-s1: 30.0M params on cuda
+{"step": 0, "tokens_seen": 0, "minutes": 0.0, "token_loss": 9.1706, "code_loss": 0.005, "fair_loss": 9.1756, "code_bits_per_segment": 0.316, "codes_used": 256, "code_perplexity": 235.7}
+{"step": 500, "tokens_seen": 16384000, "minutes": 0.29, "token_loss": 2.1011, "code_loss": 0.0315, "fair_loss": 2.1326, "code_bits_per_segment": 1.991, "codes_used": 168, "code_perplexity": 32.5}
+{"step": 1000, "tokens_seen": 32768000, "minutes": 0.56, "token_loss": 1.721, "code_loss": 0.0312, "fair_loss": 1.7522, "code_bits_per_segment": 1.972, "codes_used": 137, "code_perplexity": 37.5}
+{"step": 1500, "tokens_seen": 49152000, "minutes": 0.82, "token_loss": 1.5774, "code_loss": 0.0313, "fair_loss": 1.6088, "code_bits_per_segment": 1.984, "codes_used": 131, "code_perplexity": 40.2}
+{"step": 2000, "tokens_seen": 65536000, "minutes": 1.09, "token_loss": 1.4838, "code_loss": 0.0311, "fair_loss": 1.5149, "code_bits_per_segment": 1.967, "codes_used": 124, "code_perplexity": 41.0}
+{"step": 2500, "tokens_seen": 81920000, "minutes": 1.35, "token_loss": 1.4181, "code_loss": 0.0313, "fair_loss": 1.4494, "code_bits_per_segment": 1.983, "codes_used": 129, "code_perplexity": 36.6}
+{"step": 3000, "tokens_seen": 98304000, "minutes": 1.61, "token_loss": 1.3669, "code_loss": 0.0314, "fair_loss": 1.3983, "code_bits_per_segment": 1.985, "codes_used": 129, "code_perplexity": 37.8}
+{"step": 3500, "tokens_seen": 114688000, "minutes": 1.88, "token_loss": 1.3213, "code_loss": 0.0314, "fair_loss": 1.3527, "code_bits_per_segment": 1.988, "codes_used": 132, "code_perplexity": 38.1}
+{"step": 4000, "tokens_seen": 131072000, "minutes": 2.14, "token_loss": 1.2832, "code_loss": 0.031, "fair_loss": 1.3142, "code_bits_per_segment": 1.962, "codes_used": 130, "code_perplexity": 38.1}
+{"step": 4500, "tokens_seen": 147456000, "minutes": 2.4, "token_loss": 1.2535, "code_loss": 0.0311, "fair_loss": 1.2846, "code_bits_per_segment": 1.97, "codes_used": 128, "code_perplexity": 37.1}
+{"step": 5000, "tokens_seen": 163840000, "minutes": 2.67, "token_loss": 1.2275, "code_loss": 0.0312, "fair_loss": 1.2586, "code_bits_per_segment": 1.974, "codes_used": 133, "code_perplexity": 38.5}
+{"step": 5500, "tokens_seen": 180224000, "minutes": 2.93, "token_loss": 1.2103, "code_loss": 0.0315, "fair_loss": 1.2419, "code_bits_per_segment": 1.997, "codes_used": 128, "code_perplexity": 38.2}
+{"step": 6000, "tokens_seen": 196608000, "minutes": 3.19, "token_loss": 1.2003, "code_loss": 0.0314, "fair_loss": 1.2317, "code_bits_per_segment": 1.988, "codes_used": 142, "code_perplexity": 39.3}
+plan-paragraph-256-s1 {"items": 1000, "acc_4way": 0.635, "acc_4way_raw": 0.707, "beats_later": 0.72, "beats_earlier": 0.828, "beats_other": 0.988, "plans": 8}
+[04:37:50] done plan-paragraph-256-s1
+[04:37:50] start plan-random-256-s1
+plan-random-256-s1: 30.0M params on cuda
+{"step": 0, "tokens_seen": 0, "minutes": 0.0, "token_loss": 9.1683, "code_loss": 0.0234, "fair_loss": 9.1917, "code_bits_per_segment": 0.317, "codes_used": 256, "code_perplexity": 237.8}
+{"step": 500, "tokens_seen": 16384000, "minutes": 0.3, "token_loss": 2.0753, "code_loss": 0.1439, "fair_loss": 2.2193, "code_bits_per_segment": 1.949, "codes_used": 197, "code_perplexity": 74.4}
+{"step": 1000, "tokens_seen": 32768000, "minutes": 0.56, "token_loss": 1.6845, "code_loss": 0.1381, "fair_loss": 1.8225, "code_bits_per_segment": 1.87, "codes_used": 109, "code_perplexity": 71.6}
+{"step": 1500, "tokens_seen": 49152000, "minutes": 0.82, "token_loss": 1.5307, "code_loss": 0.1468, "fair_loss": 1.6775, "code_bits_per_segment": 1.989, "codes_used": 90, "code_perplexity": 71.0}
+{"step": 2000, "tokens_seen": 65536000, "minutes": 1.09, "token_loss": 1.4421, "code_loss": 0.1452, "fair_loss": 1.5873, "code_bits_per_segment": 1.966, "codes_used": 87, "code_perplexity": 74.6}
+{"step": 2500, "tokens_seen": 81920000, "minutes": 1.35, "token_loss": 1.3732, "code_loss": 0.15, "fair_loss": 1.5232, "code_bits_per_segment": 2.032, "codes_used": 86, "code_perplexity": 76.3}
+{"step": 3000, "tokens_seen": 98304000, "minutes": 1.62, "token_loss": 1.3209, "code_loss": 0.1464, "fair_loss": 1.4672, "code_bits_per_segment": 1.982, "codes_used": 86, "code_perplexity": 77.8}
