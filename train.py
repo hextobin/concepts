@@ -50,17 +50,20 @@ class Data:
 def evaluate(model, data, args, device, n_batches):
     model.eval()
     rng = np.random.default_rng(1234)  # same eval windows for every run
-    sums, codes = {}, []
+    sums, codes, kl_nats, segments = {}, [], 0.0, 0
     for _ in range(n_batches):
         x, y, bnd = data.batch(args.batch, rng, args.level, args.random_rate, device)
         with autocast(device):
             _, aux, _ = model(x, y, bnd)
-        for k in ("token_loss", "code_loss", "fair_loss", "vq"):
-            if k in aux:
-                sums[k] = sums.get(k, 0.0) + float(aux[k])
+        for k in ("token_loss", "code_loss", "fair_loss"):
+            sums[k] = sums.get(k, 0.0) + float(aux[k])
         if "codes" in aux:
             codes.append(aux["codes"].cpu())
+            segments += aux["n_segments"]
+            kl_nats += float(aux.get("code_nll", 0.0))
     out = {k: round(v / n_batches, 4) for k, v in sums.items()}
+    if segments:
+        out["code_bits_per_segment"] = round(kl_nats / segments / math.log(2), 3)
     if codes:
         counts = torch.bincount(torch.cat(codes), minlength=model.c.n_codes).float()
         p = counts / counts.sum()
@@ -96,7 +99,10 @@ def main():
     ap.add_argument("--warmup", type=int, default=200)
     ap.add_argument("--eval-every", type=int, default=500)
     ap.add_argument("--eval-batches", type=int, default=20)
-    ap.add_argument("--restart-every", type=int, default=200)
+    ap.add_argument("--kl-weight", type=float, default=1.0,
+                    help="training weight on the code cost; the fair loss always uses 1")
+    ap.add_argument("--free-bits", type=float, default=0.0,
+                    help="bits per segment the codes may carry at no training cost")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--data-dir", default="data")
     ap.add_argument("--out-dir", default="runs")
@@ -145,13 +151,11 @@ def main():
             g["lr"] = lr_at(step, args)
         x, y, bnd = train.batch(args.batch, rng, args.level, args.random_rate, device)
         with autocast(device):
-            _, aux, loss = step_model(x, y, bnd)
+            _, aux, loss = step_model(x, y, bnd, kl_weight=args.kl_weight, free_bits=args.free_bits)
         opt.zero_grad(set_to_none=True)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         opt.step()
-        if model.roadmap is not None and (step + 1) % args.restart_every == 0:
-            model.roadmap.restart_dead_codes()
 
     torch.save({"model": model.state_dict(), "config": c.__dict__, "args": vars(args)},
                os.path.join(out, "model.pt"))

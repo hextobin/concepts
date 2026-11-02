@@ -10,6 +10,7 @@ from model import GPT, Config
 
 
 def outputs(model, x, bnd, code_source):
+    torch.manual_seed(1)  # same code samples in both runs, so only a real leak differs
     with torch.no_grad():
         return model(x, bnd=bnd, code_source=code_source)[0]
 
